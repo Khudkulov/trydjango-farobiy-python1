@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1> Articles Create Form</h1>
+{% endblock %}
+
+
+
+{% block content %}
+    {% block primary-links %}
+    	{{ block.super }}
+        <span>Articles Create Form</span>
+    {% endblock %}<br>
+	<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success" type="submit">Save</button>
+</form>
+{% endblock %}

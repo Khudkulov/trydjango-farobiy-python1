@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1>Article Detail</h1>
+{% endblock %}
+{#------------------------------------------------------------------------------------#}
+{% block content %}
+    {% block primary-links %}
+    	{{ block.super }}
+        <span>Article Detail</span>
+    {% endblock %}
+    <br>
+    <br>
+<div>
+    {% if object.image %}
+         <img src="{{ object.image.url }}" alt="rasm bor" style="width: 200px">
+    {% endif %}
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.content }}</p>
+</div>
+{% endblock %}
+{#--------------------------------------------------------------------------------------------------------#}
+

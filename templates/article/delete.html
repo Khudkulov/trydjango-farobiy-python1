@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1>Article Delete</h1>
+{% endblock %}
+
+
+{#------------------------------------------------------------------------------#}
+{% block content %}
+	{% block primary-links %}
+        {{ block.super }}
+        <span>Article Delete</span>
+    {% endblock %}
+
+<h2 class>Are you sure to delete "{{ object.title }}"</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-primary" href="{% url 'article:list' %}">No Thanks</a>
+</form>
+{% endblock %}
+{#---------------------------------------------------------------------------------------------#}

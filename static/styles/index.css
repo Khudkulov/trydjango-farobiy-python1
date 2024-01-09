@@ -1,0 +1,40 @@
+.nav {
+    background-color: #44B78C;
+    height: 100px;
+}
+. nav image {
+    height: 100%;
+}
+.base_link a  {
+    background-color: lightslategray;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.base_link a:hover {
+    padding: 10px 15px 10px 25px ;
+    transition: 0.3s;
+ }
+.body {
+    background-color: lightgray;
+}
+.head {
+    background-color: lightgray ;
+}
+.navbar {
+     background-color: lightgray;
+}
+
+body {
+    background-color:lightgray ;
+}
+
+.not_active {
+    background-color: rgba(246,242,135,.5);
+}
+
+

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block header %}
+	<h1>Article Change</h1>
+{% endblock %}
+{#------------------------------------------------------------------------#}
+{% block content %}
+    {% block primary-links %}
+    	{{ block.super }}
+        <span>Article Change</span>
+    {% endblock %}
+<div><br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <pre>
+        <code> Modified_date:{{ object.modified_date }}</code>
+        <code> Created_date:{{ object.created_date }}</code>
+    </pre>
+        <button class="btn btn-success" type="submit">Save</button>
+        <a class="btn btn-danger" href="{% url 'article:delete' object.id %}">Delete</a>
+    </form>
+</div>
+{% endblock %}
+

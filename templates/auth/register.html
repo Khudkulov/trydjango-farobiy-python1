@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	{{ block.super }} register
+{% endblock %}
+
+{% block header %}
+	<h1>Register Page</h1>
+{% endblock %}
+
+{% block content %}
+	<div class = 'row justify-content-md-center'>
+    <div class="col-md-6">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <div class="text-danger">{{ form.username.errors }}</div>
+{#                  <input autocomplete="off" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Username" name="username">#}
+                {{ form.username }}
+                 <div id="passwordHelpBlock" class="form-text">
+                            {{ form.username.help_text }}
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword5" class="form-label">Password</label>
+                 <div class="text-danger">{{ form.password1.errors }}</div>
+{#                    <input autocomplete="off" type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="password" name="password1">#}
+                {{ form.password1 }}
+                 <div id="passwordHelpBlock" class="form-text">
+                            {{ form.password1.help_text }}
+                    </div>
+            </div>
+             <div class="mb-3">
+                <label for="inputPassword5" class="form-label">Confirm Password</label>
+                    <div class="text-danger">{{ form.password2.errors }}</div>
+{#                    <input autocomplete="off" type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Confirm password" name="password2">#}
+                 {{ form.password2 }}
+                    <div id="passwordHelpBlock" class="form-text">
+                            {{ form.password2.help_text }}
+                    </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                  <button class="btn btn-primary" type="submit">Register</button>
+                  <a href="{% url 'article:list' %}" class="btn btn-secondary" >Go home</a>
+           </div>
+             <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                  <p> if you have an account already <a class = 'text-decoration-none' href="{% url 'auth:login' %}">Login</a>. </p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

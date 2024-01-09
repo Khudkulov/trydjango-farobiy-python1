@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+	<h1> Articles Create</h1>
+{% endblock %}
+
+{% block content %}
+    {% block primary-links %}
+    	{{ block.super }}
+        <span>Articles Create</span>
+    {% endblock %}
+    <br>
+    <br>
+{% if created %}
+    <div>
+        <span>
+            <a href="{% url 'article:list' %}">Aricles</a>
+        </span>/
+        <span>
+            <a href="{% url 'article:create' %}">+ add new one</a>
+        </span>
+    </div>
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.content }}</p>
+    <pre>{{ object.created_date }}</pre>
+{% else %}
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="title">Title</label>
+        </div>
+        <div>
+            <input type="text" id="title" name="title" autocomplete="off" placeholder="title...">
+        </div>
+    <div>
+        <div>
+            <label for="content">Content</label>
+        </div>
+        <div>
+             <textarea name="content" id="content" autocomplete="off" placeholder="content..." cols="60" rows="5"></textarea>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-success" type="submit">Save</button>
+    </div>
+    </form>
+</div>
+{% endif %}
+{% endblock %}
